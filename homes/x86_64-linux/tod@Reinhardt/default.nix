@@ -11,9 +11,11 @@ in {
     username = "tod";
     homeDirectory = "/home/tod";
     stateVersion = "24.05";
+    packages = with pkgs; [ nerdfonts ];
   };
   custom.impermanence.enable = true;
   custom.shell.enable = true;
+  fonts.fontconfig.enable = true;
   programs = {
     home-manager.enable = true;
     direnv = {
