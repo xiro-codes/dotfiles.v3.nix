@@ -27,7 +27,9 @@ in {
         ".local/state/cosmic-comp"
         ".local/share/direnv"
 	".local/share/flatpak"
+	".local/share/zoxide"
 	".mozilla"
+	".var/app"
       ];
       files = [
       	".local/share/fish/fish_history"

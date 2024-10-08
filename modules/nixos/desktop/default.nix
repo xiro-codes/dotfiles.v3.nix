@@ -24,6 +24,9 @@ in {
       xdg-user-dirs
       xdg-utils
     ];
+    boot.plymouth.enable = true;
+
+    hardware.steam-hardware.enable = true;
 
     environment.variables = {
       NIXOS_OZONE_WL = "1";
@@ -37,7 +40,6 @@ in {
       WLR_NO_HARDWARE_CURSORS = "1";
       _JAVA_AWT_WM_NONREPARENTING = "1";
       _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
-      WARP_ENABLE_WAYLAND = "1";
     };
 
     networking.networkmanager.enable = true;

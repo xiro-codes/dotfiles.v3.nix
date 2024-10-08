@@ -13,6 +13,7 @@ in {
     stateVersion = "24.05";
   };
   custom.impermanence.enable = true;
+  custom.shell.enable = true;
   programs = {
     home-manager.enable = true;
     direnv = {
