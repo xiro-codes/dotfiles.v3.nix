@@ -7,9 +7,20 @@
   cfg = config.custom;
   inherit (lib) mkOption types mkIf;
 in {
-  options.custom.impermanence.enable = mkOption {
-    type = types.bool;
-    default = false;
+  options.custom.impermanence = {
+	  enable = mkOption {
+	    type = types.bool;
+	    default = false;
+	    description = "Enable home-manager impermanence";
+	  };
+	  persistanceLocation = mkOption {
+	  	type = types.str;
+		default = "/persist/home/tod";
+		description = ''
+		#TODO
+		Set the location for persisting defined files and folders
+		'';
+	  };
   };
   config = mkIf cfg.impermanence.enable {
     # todo: smells bad

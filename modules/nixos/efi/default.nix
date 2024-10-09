@@ -11,7 +11,7 @@ in {
     bootloader = mkOption {
       type = types.enum ["none" "grub" "systemd-boot"];
       default = "none";
-      description = lib.mdDoc '' 
+      description = '' 
       	Select a bootloader.
 	- none
 	- grub

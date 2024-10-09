@@ -10,6 +10,7 @@ in {
 	options.custom.shell.enable = mkOption {
 		type = types.bool;
 		default = false;
+		description = "Configure fish shell.";
 	};
 	config = mkIf cfg.shell.enable {
 		programs = {
