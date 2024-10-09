@@ -11,6 +11,9 @@ in {
     enable = mkOption {
       type = types.bool;
       default = false;
+      description = lib.mdDoc ''
+      	configure common settings
+      '';
     };
   };
   config = mkIf cfg.settings.enable {

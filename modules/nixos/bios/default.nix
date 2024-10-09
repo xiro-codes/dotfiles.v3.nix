@@ -11,6 +11,9 @@ in {
     enable = mkOption {
       type = types.bool;
       default = false;
+      description = lib.mdDoc ''
+      	Configure boot loader
+      '';
     };
   };
   config = mkIf (self.enable) {

@@ -10,6 +10,11 @@ in {
   options.custom.impermanence.enable = mkOption {
     type = types.bool;
     default = false;
+    description = lib.mdDoc ''
+    	Enable impermanence. 
+	# WARNING 
+	lot of hard coded magic
+    '';
   };
   config = mkIf cfg.impermanence.enable {
     boot.initrd.postDeviceCommands = lib.mkAfter ''

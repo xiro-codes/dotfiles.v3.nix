@@ -41,7 +41,7 @@
             content = {
               type = "btrfs";
               extraArgs = ["-f"];
-
+	      mountpoint = "/mnt/boot-disk";
               subvolumes = {
                 "/root" = {
                   mountpoint = "/";

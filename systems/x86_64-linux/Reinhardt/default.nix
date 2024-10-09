@@ -27,6 +27,7 @@
     # define host specific packages
     #applications = [ ];
   };
+  programs.steam.enable = true;
 
   users.users.tod = {
     name = "tod";
@@ -36,4 +37,10 @@
     password = host;
   };
   programs.fish.enable = true;
+  fileSystems."/home/tod/.steam" = {
+  	device = "/persist/steam";
+	fsType = "none";
+	options =  ["bind"];
+	noCheck = true;
+  };
 }

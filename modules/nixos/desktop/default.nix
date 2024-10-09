@@ -14,6 +14,12 @@ in {
     enable = mkOption {
       type = bool;
       default = false;
+      description = lib.mdDoc ''
+      	Enable desktop enviroment.
+	#TODO
+	- configure other enviroments
+	- impermenice issues
+      '';
     };
   };
 

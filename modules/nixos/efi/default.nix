@@ -11,6 +11,12 @@ in {
     bootloader = mkOption {
       type = types.enum ["none" "grub" "systemd-boot"];
       default = "none";
+      description = lib.mdDoc '' 
+      	Select a bootloader.
+	- none
+	- grub
+	- systemd-boot
+      '';
     };
   };
   config = mkMerge [

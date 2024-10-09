@@ -29,7 +29,8 @@ in {
 	".local/share/flatpak"
 	".local/share/zoxide"
 	".mozilla"
-	".var/app"
+	".var/app/"
+	".local/share/Steam"
       ];
       files = [
       	".local/share/fish/fish_history"
