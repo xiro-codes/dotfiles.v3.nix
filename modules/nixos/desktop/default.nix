@@ -7,8 +7,11 @@
 }: let
   cfg = config.custom;
   self = cfg.desktop;
-  inherit (lib) mkOption mkIf;
+  inherit (lib) mkOption mkIf getExe;
   inherit (lib.types) bool;
+  command = ''
+  	${getExe pkgs.greetd.tuigreet}
+  '';
 in {
   options.custom.desktop = {
     enable = mkOption {
@@ -30,9 +33,8 @@ in {
       xdg-user-dirs
       xdg-utils
     ];
-    boot.plymouth.enable = true;
 
-    hardware.steam-hardware.enable = true;
+    boot.plymouth.enable = true;
 
     environment.variables = {
       NIXOS_OZONE_WL = "1";
@@ -48,13 +50,26 @@ in {
       _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
     };
 
-    networking.networkmanager.enable = true;
+    users.users.greeter = {
+    	name = "greeter";
+	isSystemUser = true;
+	group = "greeter";
+    };
+    users.groups.greeter = {};
+    security.pam.services.swaylock = {};
+    programs.hyprland.enable = true;
 
     services = {
       flatpak.enable = true;
       pipewire.enable = true;
-      desktopManager.cosmic.enable = true;
-      displayManager.cosmic-greeter.enable = true;
+      greetd = {
+      	enable = true;
+	vt = 2;
+	settings.default_session = {
+		inherit command;
+		user = "greeter";
+	};
+      };
     };
   };
 }

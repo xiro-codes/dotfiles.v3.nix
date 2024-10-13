@@ -12,6 +12,7 @@
             size = "100%FREE";
             content = {
               type = "btrfs";
+	      mountpoint = "/mnt/hdd";
               subvolumes = {
                 "/desktop" = {
                 };

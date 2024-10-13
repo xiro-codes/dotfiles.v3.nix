@@ -6,7 +6,8 @@ install DEVICE HOST=`hostname`:
 make-iso HOST=`hostname`:
 	nix build .#nixosConfigurations.{{HOST}}.config.formats.install-iso
 	#mv result {{HOST}}.iso
-
+boot HOST=`hostname`:
+	sudo nixos-rebuild boot --flake ./#{{HOST}}
 rebuild:
 	sudo nixos-rebuild switch
 
@@ -16,6 +17,9 @@ update-rebuild:
 
 check:
 	nix flake check
+
+build-docs:
+	nix build .#docs
 
 start-vm HOST=`hostname`:  
 	nixos-rebuild build-vm --flake ./#{{HOST}}

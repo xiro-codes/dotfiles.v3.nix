@@ -42,6 +42,7 @@ in {
 	".mozilla"
 	".var/app/"
 	".local/share/Steam"
+	 ".cache"
       ];
       files = [
       	".local/share/fish/fish_history"

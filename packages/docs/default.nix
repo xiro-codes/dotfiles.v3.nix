@@ -16,6 +16,8 @@
         config._module.check = false;
       }
       inputs.home-manager.nixosModules.default
+      inputs.self.homeModules.impermanence
+      inputs.self.homeModules.shell
     ];
   };
   # generate our docs
@@ -88,18 +90,19 @@ in
 
       # Generate nixos md docs
       cat ${optionsDocNixos.optionsCommonMark} > "$tmpdir"/nixos.md
+
       # Generate home-manager md docs
       cat ${optionsDocHome.optionsCommonMark} > "$tmpdir"/home.md
 
       buildpandoc "$tmpdir"/nixos.md "Nixos Modules - Options Documentation"
       buildpandoc "$tmpdir"/home.md "Home Manager Modules - Options Documentation"
-
+      
       pandoc \
         --standalone \
         --highlight-style docs/pandoc/gruvbox.theme \
         --metadata title="Dotfile.nix Modules - Option Documentation" \
         --metadata timestamp="$(date -u '+%Y-%m-%d - %H:%M:%S %Z')" \
-        --css /docs/pandoc/style.css \
+        --css docs/pandoc/style.css \
         --template docs/pandoc/template.html \
         -V lang=en \
         -V --mathjax \
